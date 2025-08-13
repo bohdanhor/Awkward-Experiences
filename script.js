@@ -4,14 +4,13 @@ document.addEventListener('click', function(e) {
     clickCount++;
 
     if (clickCount % 5 === 0) {
-        let sound = new Audio("jixaw-metal-pipe-falling-sound.mp3");
+        let sound = new Audio("media/jixaw-metal-pipe-falling-sound.mp3");
         sound.play().catch(err => console.error("Audio play error:", err));
     }
 }, true); // "true" captures before other listeners
 // --- END -- Clicking makes a noise
 
 // --- START -- Everytime you click a link it asks "are you sure?"
-
 document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function (event) {
         const yeahsure = confirm("Are you sure you want to leave this page?");
