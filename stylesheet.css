@@ -3,11 +3,6 @@
     --secondary-color: #6c757d;
     --background-color: #f8f9fa;
     --text-color: #333;
-/* DARK MODE */
-    --dark-primary-color: #ff0000;
-    --dark-secondary-color: #b6a373;
-    --dark-background-color: #544436;
-    --dark-text-color: #d97a7a;
 }
 
 html{
@@ -21,6 +16,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
+    background-image: url("employment_job_application.jpg"); /* Replace with your image path */
+    background-size:contain; /* Or use 'contain', '100% 100%', etc. */
+    background-repeat: repeat; /* Prevents the image from repeating */
+    background-position:center; /* Centers the image */
+    /* Optional: Add other background properties like background-color, etc. */
 }   
 
 header {
@@ -29,6 +29,12 @@ header {
     text-align: center;
     height: 40vh;
     align-content: center;
+    background-color: var(--background-color);
+    background-image: url("employment_job_application.jpg"); /* Replace with your image path */
+    background-size:contain; /* Or use 'contain', '100% 100%', etc. */
+    background-repeat: repeat; /* Prevents the image from repeating */
+    background-position:center; /* Centers the image */
+    /* Optional: Add other background properties like background-color, etc. */
 }
 h1 {
     font-size: 2.5rem;
@@ -87,22 +93,3 @@ footer {
     right: 5%;
 }
 
-body.dark-mode {
-    background-color: var(--dark-background-color);
-    color: var(--dark-text-color);
-}
-
-body.dark-mode section {
-    background-color: var(--dark-secondary-color);
-    color: var(--dark-text-color);
-}
-
-body.dark-mode #greeting {
-    background-color: var(--dark-secondary-color);
-    color: var(--dark-text-color);
-}
-
-body.dark-mode header {
-    background-color: var(--dark-background-color);
-    color: var(--dark-text-color);
-}
