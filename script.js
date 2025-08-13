@@ -10,3 +10,7 @@ document.addEventListener('click', function(e) {
     }
 }, true); // "true" captures before other listeners
 // --- END -- Clicking makes a noise
+
+// --- START -- Everytime you click a link it asks "are you sure?"
+
+// --- END -- Everytime you click a link it asks "are you sure?"
