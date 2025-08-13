@@ -6,7 +6,7 @@
 }
 
 html{
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.5;
     color: var(--text-color);
 }
@@ -30,6 +30,10 @@ h1 {
     margin: 0;
     color: var(--primary-color);
 }
+
+h5{
+    color: var(--secondary-color);
+}
 nav {
     gap: 1rem;
     padding: 1rem;
@@ -44,6 +48,12 @@ nav ul {
     font-size: 1.2rem;
     font-family: 'Inter', sans-serif;
     margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 #greeting {
@@ -62,6 +72,12 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: var(--background-color);
     color: var(--secondary-color);
+}
+
+.slider-box{
+    position: absolute;
+    width: fit-content;
+    top: 5%;
+    right: 5%;
 }
