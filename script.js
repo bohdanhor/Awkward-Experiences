@@ -49,10 +49,10 @@ function darkMode() {
         }
         repeatToggle();
     }, 3000);
-    // After 10 seconds, toggle dark mode again
+    // After 4 seconds, toggle dark mode again
     setTimeout(() => {
         toggleDark();
-    }, 10000);
+    }, 4000);
 
 }
 

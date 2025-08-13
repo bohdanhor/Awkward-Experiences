@@ -22,6 +22,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
+    background-image: url("employment_job_application.jpg");
+    background-size: 75%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }   
 
 header {
