@@ -3,8 +3,7 @@ let clickCount = 0;
 document.addEventListener('click', function(e) {
     clickCount++;
 
-    if (clickCount % 3 === 0) {
-        console.log('Third click detected');
+    if (clickCount % 5 === 0) {
         let sound = new Audio("jixaw-metal-pipe-falling-sound.mp3");
         sound.play().catch(err => console.error("Audio play error:", err));
     }
@@ -12,7 +11,6 @@ document.addEventListener('click', function(e) {
 // --- END -- Clicking makes a noise
 
 // --- START -- Everytime you click a link it asks "are you sure?"
-// allUrls = document.querySelectorAll("a")
 
 document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function (event) {

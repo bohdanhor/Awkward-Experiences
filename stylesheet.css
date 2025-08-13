@@ -3,6 +3,7 @@
     --secondary-color: #6c757d;
     --background-color: #f8f9fa;
     --text-color: #333;
+    --alert-text-color: #ff0000;
 /* DARK MODE */
     --dark-primary-color: #ff0000;
     --dark-secondary-color: #b6a373;
@@ -105,4 +106,10 @@ body.dark-mode #greeting {
 body.dark-mode header {
     background-color: var(--dark-background-color);
     color: var(--dark-text-color);
+}
+
+.alert {
+    color: var(--alert-text-color);
+    font-weight: bold;
+    font-size: 1.2rem;
 }
