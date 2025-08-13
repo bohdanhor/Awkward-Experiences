@@ -22,6 +22,7 @@ document.querySelectorAll('a').forEach(link => {
 });
 // --- END -- Everytime you click a link it asks "are you sure?"
 
+// --- START -- Dark mode toggle with animation //
 function darkMode() {
     // Initial toggle
     document.body.classList.toggle("dark-mode");
@@ -57,3 +58,16 @@ function darkMode() {
 }
 
 document.getElementById("darkModeButton").addEventListener("click", darkMode);
+
+// --- END -- Dark mode toggle with animation //
+
+// --- START -- Alert box for jokes
+function closeAlert() {
+    const alertBoxes = document.getElementsByClassName("jokealert");
+    Array.from(alertBoxes).forEach(alertBox => {
+        alertBox.classList.toggle("hidden");
+    });
+}
+
+document.getElementById("closeAlertButton").addEventListener("click", closeAlert); 
+// --- END -- Alert box for jokes
