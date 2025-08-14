@@ -80,7 +80,25 @@
     <footer>
         ©DL&B 2025 | Contact us:
     </footer>
+<!-- Cookie Modal -->
+<div id="cookie-modal" style="position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;">
+  <div style="background:#fff;padding:2rem;border-radius:1rem;max-width:350px;text-align:center;">
+    <h2>🍪 Cookies?</h2>
+    <p>We use cookies to make your experience awkwardly delightful.</p>
+    <button id="accept-cookies" style="margin:1rem 0.5rem 0 0.5rem;">Accept Cookies</button>
+    <button id="pay-100" disabled style="margin:1rem 0.5rem 0 0.5rem;opacity:0.5;cursor:not-allowed;">Pay £100 for no cookies</button>
+    <div style="font-size:0.9em;color:#b00;margin-top:0.5em;">(Sorry! Subscription not available yet – we’re still setting up our bank account.)</div>
+  </div>
+</div>
 
+<!-- Tea Modal -->
+<div id="tea-modal" style="position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;">
+  <div style="background:#fff;padding:2rem;border-radius:1rem;max-width:350px;text-align:center;">
+    <h2>☕ Tea?</h2>
+    <p>Would you like a nice cup of tea as well?</p>
+    <button id="accept-tea" style="margin:1rem 0.5rem 0 0.5rem;">Yes, please!</button>
+  </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

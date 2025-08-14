@@ -278,3 +278,22 @@ $('#fun-checkout-form').on('submit', function(e) {
     alert("Thank you for submitting your legendary details!\n(We won't actually use them, promise.)");
     $('#checkout-overlay').addClass('hidden');
 });
+
+// --- START -- Cookie and Tea Offer ---
+window.addEventListener('DOMContentLoaded', function() {
+    const cookieModal = document.getElementById('cookie-modal');
+    const teaModal = document.getElementById('tea-modal');
+    const acceptCookies = document.getElementById('accept-cookies');
+    const acceptTea = document.getElementById('accept-tea');
+
+    acceptCookies.addEventListener('click', function() {
+        cookieModal.style.display = 'none';
+        teaModal.style.display = 'flex';
+    });
+
+    acceptTea.addEventListener('click', function() {
+        teaModal.style.display = 'none';
+        alert('Enjoy your tea! 🍵');
+    });
+});
+// --- END -- Cookie and Tea Offer ---
