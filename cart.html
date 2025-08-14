@@ -26,9 +26,11 @@
             <li><a href="cart.html" id="cart-count">Cart(0)</a></li>
             <li><a href="https://www.youtube.com/watch?v=2yJgwwDcgV8">If You Need a Second One</a></li>
             <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="index.html">Home</a></li>  
+            <li><a href="index.html">Home</a></li>
+            <li><a href="credits.html">Website Credits</a></li>
         </ul>
     </nav>
+    <button id="checkout">Checkout</button>
     <section class="jobs-cart" id="jobs-cart"></section>
     <footer>
         ©DL&B 2025 | Contact us:
@@ -38,6 +40,33 @@
 </body>
 </html>
 
-
+<div id="checkout-overlay" class="checkout-overlay hidden">
+    <div class="checkout-modal">
+        <h2>Super Serious Checkout Form</h2>
+        <form id="fun-checkout-form">
+            <label for="name">Your Ridiculous Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Sir Quackalot the Third" required>
+            
+            <label for="email">Email (for spam):</label>
+            <input type="email" id="email" name="email" placeholder="e.g. totallynotaspambot@fake.com" required>
+            
+            <label for="birthday">Birthday (slide to your age):</label>
+            <input type="range" id="birthday" name="birthday" min="1920" max="2025" value="2000">
+            <span id="birthday-value">2000</span>
+            
+            <label for="favAnimal">Favourite Animal (we won't judge):</label>
+            <input type="text" id="favAnimal" name="favAnimal" placeholder="e.g. Llama">
+            
+            <label for="joke">Tell us a joke (mandatory):</label>
+            <textarea id="joke" name="joke" rows="2" placeholder="Why did the chicken cross the road?"></textarea>
+            
+            <div class="checkout-buttons">
+                <button type="button" id="close-checkout" class="checkout-btn">Submit & Become Legendary</button>
+                <button type="submit" class="checkout-btn primary">Cancel</button>
+            </div>
+        </form>
+        <p class="checkout-note">We promise to use your data for only the most questionable purposes.</p>
+    </div>
+</div>
 
 <!-- Illustration by <a href="https://unsplash.com/@publicdomainvectors?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Public domain vectors</a> on <a href="https://unsplash.com/illustrations/diverse-hands-coming-together-for-unity-9fthiND55uk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
