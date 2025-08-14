@@ -297,3 +297,40 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 // --- END -- Cookie and Tea Offer ---
+
+// --- START -- Loading Popup every 10 seconds ---
+const popupImages = [
+    "media/event1.jpg",
+    "media/event2.jpg",
+    "media/event3.jpg"
+];
+
+let popupActive = false;
+
+function showLoadingPopup() {
+    if (popupActive) return; // Prevent stacking
+    popupActive = true;
+
+    // Pick a random image
+    const imgSrc = popupImages[Math.floor(Math.random() * popupImages.length)];
+    document.getElementById('popup-image').src = imgSrc;
+
+    // Show popup
+    document.getElementById('loading-popup').style.display = 'flex';
+}
+
+function closeLoadingPopup() {
+    document.getElementById('loading-popup').style.display = 'none';
+    popupActive = false;
+}
+
+document.getElementById('close-loading-popup').addEventListener('click', closeLoadingPopup);
+
+// Start interval after DOM is ready
+window.addEventListener('DOMContentLoaded', function() {
+    setInterval(showLoadingPopup, 6000);
+});
+
+document.getElementById('popup-image').alt = "Generic event photo";
+
+// --- END -- Loading Popup every 10 seconds ---

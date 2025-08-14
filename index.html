@@ -99,6 +99,19 @@
     <button id="accept-tea" style="margin:1rem 0.5rem 0 0.5rem;">Yes, please!</button>
   </div>
 </div>
+
+<!-- Loading Popup -->
+<div id="loading-popup" style="display:none;position:fixed;z-index:99999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
+  <div style="background:#fff;padding:2rem;border-radius:1rem;max-width:400px;text-align:center;position:relative;">
+    <h2>LOADING.........</h2>
+    <p>While you’re waiting, please check out our last useless event where we did nice pictures of us being busy so we have what to post in our feed!</p>
+    <div id="popup-image-box" style="margin:1em 0;">
+      <img id="popup-image" src="" alt="Event Pic" style="max-width:100%;border-radius:0.5em;">
+    </div>
+    <button id="close-loading-popup" style="margin-top:1em;">Close</button>
+  </div>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>
