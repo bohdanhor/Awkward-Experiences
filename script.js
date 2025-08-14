@@ -22,38 +22,33 @@ document.querySelectorAll('a').forEach(link => {
 // --- END -- Everytime you click a link it asks "are you sure?"
 
 // --- START -- Dark mode toggle with animation //
+
+let _darkBusy = false;
+
 function darkMode() {
-    // Initial toggle
+  if (_darkBusy) return;
+  _darkBusy = true;
+  document.body.classList.toggle("dark-mode");
+
+  function toggleDark() {
     document.body.classList.toggle("dark-mode");
-    document.querySelectorAll("section").forEach(sec => {
-        sec.classList.toggle("dark-mode");
-    });
+  }
 
-    // Helper to toggle dark mode
-    function toggleDark() {
-        document.body.classList.toggle("dark-mode");
-        document.querySelectorAll("section").forEach(sec => {
-            sec.classList.toggle("dark-mode");
-        });
-    }
-
-    // After 3 seconds, start toggling back and forth 4 more times with 0.2s pause
-    setTimeout(() => {
-        let count = 0;
-        function repeatToggle() {
-            if (count < 7) { // 7 toggles (back and forth)
-                toggleDark();
-                count++;
-                setTimeout(repeatToggle, 100);
-            }
-        }
-        repeatToggle();
-    }, 3000);
-    // After 4 seconds, toggle dark mode again
-    setTimeout(() => {
+  setTimeout(() => {
+    let count = 0;
+    (function repeatToggle() {
+      if (count < 7) {
         toggleDark();
-    }, 4000);
+        count++;
+        setTimeout(repeatToggle, 100);
+      }
+    })();
+  }, 3000);
 
+  setTimeout(() => {
+    toggleDark();
+    _darkBusy = false;
+  }, 4000);
 }
 
 document.getElementById("darkModeButton").addEventListener("click", darkMode);
