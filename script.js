@@ -106,7 +106,7 @@ const jobs = [
         id: 5,
         title: "Dog Walker",
         company: "Waggie Walkies",
-        location: "Greater Manchester",
+        location: "Greater Manchester", 
         salary: "Negotiable",
         desc: "This job requires an ENTHUSIATIC applicant with a LOVE for pups in all shapes and sizes. You will have the honour of escorting cuddly canines around their local areas (no more than 3 miles from home), to parks, a-pup-ments as well as other designated locations defined within their action plan.",
         ideal: "5 years minimum experience working with pets, a valid UK driving licence, LOVES DOGS",
@@ -115,7 +115,7 @@ const jobs = [
 ];
 // --- START -- Alert box for jokes
 function closeAlert() {
-    const alertBoxes = document.getElementsByClassName("jokealert");
+    const alertBoxes = document.getElementsByClassName("alert");
     
     console.log(alertBoxes);
     Array.from(alertBoxes).forEach(alertBox => {
@@ -185,7 +185,7 @@ function renderCart(cart) {
         $('#jobs-cart').empty();
         const groupedJobs = groupCartItems(cart);
         if (groupedJobs.length === 0) {
-            $('#jobs-cart').append('<p>Your cart is empty.</p>');
+            $('#jobs-cart').append("<p>You need a Job. Didn't you.</p>");
         } else {
             groupedJobs.forEach(function(job) {
                 $('#jobs-cart').append(jobCardHtml(job, false, null, true));
@@ -254,3 +254,22 @@ $('#cursorRange').on('input', function() {
     $('body').css('cursor', cursorType);
 });
 // --- END -- Cart rendering and logic
+
+// Checkout overlay logic
+$('#checkout').on('click', function() {
+    $('#checkout-overlay').removeClass('hidden');
+});
+
+$('#close-checkout').on('click', function() {
+    $('#checkout-overlay').addClass('hidden');
+});
+
+$('#birthday').on('input', function() {
+    $('#birthday-value').text($(this).val());
+});
+
+$('#fun-checkout-form').on('submit', function(e) {
+    e.preventDefault();
+    alert("Thank you for submitting your legendary details!\n(We won't actually use them, promise.)");
+    $('#checkout-overlay').addClass('hidden');
+});
