@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Division of Labour and Benefits</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -18,25 +19,6 @@
             </div>
             <button id="darkModeButton">Dark Mode</button>
         </div>
-
-        <section class="alert">
-        <p>If you have epilepsy, LEAVE THIS SITE IMMEDIATELY! THIS IS NOT A JOKE!</p>
-        <br>
-        <button id="closeAlertButton">Close Alerts</button>
-        <p class="jokealert">If you are using a screen reader, please be aware that this site won't be fully accessible.</p>
-        <p class="jokealert">If you are using a mobile device, please be aware that this site may not display correctly.</p>
-        <p class="jokealert">If you are using a slow internet connection, please be patient as this site may take a while to load.</p>
-        <p class="jokealert">If you are using a public computer, please be aware that this site may not be secure.</p>
-        <p class="jokealert">If you are using a work computer, please be aware that this site may not be appropriate for your workplace.</p>
-        <p class="jokealert">If you are using a school computer, please be aware that this site may not be appropriate for your school.</p>
-        <p class="jokealert">If you are using a computer in a library, please be aware that this site may not be appropriate for your library.</p>
-        <p class="jokealert">If you are using a computer in a public place, please be aware that this site may not be appropriate for that public place.</p>
-        <p class="jokealert">If you are using a computer in a private place, please be aware that this site may not be appropriate for that private place.</p>
-        <p class="jokealert">If you are using a computer in a place where you are not allowed to use a computer, please be aware that this site may not be appropriate for that place.</p>
-        <p class="jokealert">If you are using a computer in a place where you are not allowed to use the internet, please be aware that this site may not be appropriate for that place.</p>
-        <p class="jokealert">If you are using a computer in a place where you are not allowed to use this site, please be aware that this site may not be appropriate for that place.</p>
-        <p>We stand with Ukraine!</p>
-    </section>
     </header>
 
     <nav>
@@ -44,25 +26,29 @@
             <li><a href="https://www.google.com/">Home</a></li>
             <li><a href="Jobs.html">Jobs</a></li>
             <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1">Mental Health Support</a></li>
+            <li><a href="cart.html">Cart(0)</a></li>
         </ul>
     </nav>
 
 
-    <section id="greeting">
-        <p>Welcome to the Division of Labour and Benefits Home Page!</p>
-        <p>We are proud to support 2.5 million people every day searching for work and successfully place 35 users a week in their new careers!!!</p>
-        <p>For news and updates, see the bottom right! For resources, check the navigation bar above! To contact us directly, please follow this link.</p>
-        <p>To begin your job search, please use the button below.</p>
-        <button><a href="Jobs.html">START NOW</a></button>
-    </section>
+    <section class="greeting-photo-box">
+        <div class="greeting-left">
+            <h5>Welcome to the Division of Labour and Benefits Home Page!</h5>
+            <h2>We are proud to support 2.5 million people every day searching for work and successfully place 35 users a week in their new careers!!!</h2>
+            <h3>For news and updates, see the bottom right! For resources, check the navigation bar above! To contact us directly, please follow this link.</h3>
+            <button id="start-btn"><a href="Jobs.html">START NOW</a></button>
+        </div>
+        <div class="photo-right">
+            <img src="media/ian-schneider-TamMbr4okv4-unsplash.jpg" alt="Two people standing on gray tile paving" class="responsive-image">
+            <p class="photo-credit">Photo by <a href="https://unsplash.com/@goian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ian Schneider</a> on <a href="https://unsplash.com/photos/two-person-standing-on-gray-tile-paving-TamMbr4okv4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+        </div>
+    </section>     
 
-    <section id="independent-feed">
-        <!-- Feed content goes here -->
+    <!-- <section id="independent-feed">
         <p>Feed Item 1</p>
         <p>Feed Item 2</p>
         <p>Feed Item 3</p>
-        <!-- ... more feed items ... -->
-    </section>
+    </section> -->
 
     <section id="news">
         <h2>News and Updates</h2>
