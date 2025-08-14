@@ -4,8 +4,8 @@ document.addEventListener('click', function(e) {
     clickCount++;
 
     if (clickCount % 5 === 0) {                                                     
-        // let sound = new Audio("media/jixaw-metal-pipe-falling-sound.mp3");
-        // sound.play().catch(err => console.error("Audio play error:", err));
+        let sound = new Audio("media/jixaw-metal-pipe-falling-sound.mp3");
+        sound.play().catch(err => console.error("Audio play error:", err));
     }
 }, true); // "true" captures before other listeners
 // --- END -- Clicking makes a noise
@@ -59,36 +59,6 @@ function darkMode() {
 document.getElementById("darkModeButton").addEventListener("click", darkMode);
 // --- END -- Dark mode toggle with animation //
 
-// --- START -- Alert box for epilepsy and other warnings - CHANGE THIS BACK LATER.
-const alertContent = `
-If you have epilepsy, LEAVE THIS SITE IMMEDIATELY! THIS IS NOT A JOKE!
-
-If you are using a screen reader, please be aware that this site won't be fully accessible.
-If you are using a mobile device, please be aware that this site may not display correctly.
-If you are using a slow internet connection, please be patient as this site may take a while to load.
-If you are using a public computer, please be aware that this site may not be secure.
-If you are using a work computer, please be aware that this site may not be appropriate for your workplace.
-If you are using a school computer, please be aware that this site may not be appropriate for your school.
-If you are using a computer in a library, please be aware that this site may not be appropriate for your library.
-If you are using a computer in a public place, please be aware that this site may not be appropriate for that public place.
-If you are using a computer in a private place, please be aware that this site may not be appropriate for that private place.
-If you are using a computer in a place where you are not allowed to use a computer, please be aware that this site may not be appropriate for that place.
-If you are using a computer in a place where you are not allowed to use the internet, please be aware that this site may not be appropriate for that place.
-If you are using a computer in a place where you are not allowed to use this site, please be aware that this site may not be appropriate for that place.
-
-We stand with Ukraine!
-`;
-
-let alertCount = 0;
-function showAlertThreeTimes() {
-    alertCount++;
-    if (alertCount < 3) {
-        // alert(alertContent);
-        showAlertThreeTimes();
-    }
-}
-showAlertThreeTimes();
-// --- END -- Alert box for epilepsy and other warnings
 
 // --- START -- Jobs script
 const jobs = [
@@ -143,6 +113,20 @@ const jobs = [
         tags: ["Part-time", "Pets", "Outdoor"]
     }
 ];
+// --- START -- Alert box for jokes
+function closeAlert() {
+    const alertBoxes = document.getElementsByClassName("jokealert");
+    
+    console.log(alertBoxes);
+    Array.from(alertBoxes).forEach(alertBox => {
+        alertBox.classList.toggle("hidden");
+    });
+}
+$('#closeAlertButton').on("click", function() {
+    console.log("Alert closed");
+    closeAlert(); 
+})
+// --- END -- Alert box for jokes
 
 function groupCartItems(cart) {
     const grouped = {};
@@ -208,7 +192,7 @@ function renderCart(cart) {
             });
 
             // Quantity button handlers
-            $('.plus-btn').off('click').on('click', function() {
+            $('.minus-btn').off('click').on('click', function() {
                 const id = Number($(this).data('id'));
                 const job = jobs.find(j => j.id === id);
                 cart.push(job);
@@ -217,7 +201,7 @@ function renderCart(cart) {
                 updateCartCount();
             });
 
-            $('.minus-btn').off('click').on('click', function() {
+            $('.plus-btn').off('click').on('click', function() {
                 const id = Number($(this).data('id'));
                 const idx = cart.findIndex(j => j.id === id);
                 if (idx !== -1) {
