@@ -31,8 +31,18 @@ function darkMode() {
   document.body.classList.toggle("dark-mode");
 
   function toggleDark() {
-    document.body.classList.toggle("dark-mode");
+    //swap the dark mode with root variables
+    const rootStyles = getComputedStyle(document.documentElement);
+    const primaryColor = rootStyles.getPropertyValue('--primary-color');
+    const secondaryColor = rootStyles.getPropertyValue('--secondary-color');
+    
+    document.documentElement.style.setProperty('--primary-color', rootStyles.getPropertyValue('--dark-primary-color'));
+    document.documentElement.style.setProperty('--secondary-color', rootStyles.getPropertyValue('--dark-secondary-color'));
+    
+    document.documentElement.style.setProperty('--dark-primary-color', primaryColor);
+    document.documentElement.style.setProperty('--dark-secondary-color', secondaryColor);
   }
+
 
   setTimeout(() => {
     let count = 0;

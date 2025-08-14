@@ -5,12 +5,10 @@
     --text-color: #333;
     --alert-text-color: #ff0000;
 /* DARK MODE */
-
-
-    --dark-primary-color: #ff0000;
+    --dark-primary-color: pink;
     --dark-secondary-color: #b6a373;
     --dark-background-color: #544436;
-    --dark-text-color: #d97a7a; 
+    --dark-text-color: #ff0000; 
 }
 
 .alert, .jokealert {
@@ -111,17 +109,17 @@ footer {
 }
 
 body.dark-mode {
-    background-color: var(--dark-background-color);
-    color: var(--dark-text-color);
+    background-color: var(--dark-background-color) !important;
+    color: var(--dark-text-color) !important;
 }
 
 body.dark-mode section {
-    background-color: var(--dark-secondary-color);
-    color: var(--dark-text-color);
+    background-color: var(--dark-secondary-color) !important;
+    color: var(--dark-text-color) !important;
 }
 
 body.dark-mode #greeting {
-    color: var(--dark-text-color);
+    color: var(--dark-text-color) !important;
 }
 
 body.dark-mode header {
