@@ -57,10 +57,9 @@ function darkMode() {
 }
 
 document.getElementById("darkModeButton").addEventListener("click", darkMode);
-
 // --- END -- Dark mode toggle with animation //
 
-// --- START -- Alert box for epilepsy and other warnings
+// --- START -- Alert box for epilepsy and other warnings - CHANGE THIS BACK LATER.
 const alertContent = `
 If you have epilepsy, LEAVE THIS SITE IMMEDIATELY! THIS IS NOT A JOKE!
 
@@ -91,7 +90,7 @@ function showAlertThreeTimes() {
 showAlertThreeTimes();
 // --- END -- Alert box for epilepsy and other warnings
 
-//data for jobs
+// --- START -- Jobs script
 const jobs = [
     {
         id: 1,
@@ -194,7 +193,9 @@ function renderJobs(jobs) {
         });
     }
 }
+// End --- Jobs script
 
+// --- START -- Cart rendering and logic
 function renderCart(cart) {
     if ($('#jobs-cart').length) {
         $('#jobs-cart').empty();
@@ -268,3 +269,4 @@ $('#cursorRange').on('input', function() {
     else cursorType = 'wait';
     $('body').css('cursor', cursorType);
 });
+// --- END -- Cart rendering and logic

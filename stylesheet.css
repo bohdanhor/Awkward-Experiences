@@ -6,22 +6,21 @@
 /* DARK MODE */
 
     /* Kei: Safety measre for my eye during edit */
-    /* --dark-primary-color: #ff0000;
+    --dark-primary-color: #ff0000;
     --dark-secondary-color: #b6a373;
     --dark-background-color: #544436;
-    --dark-text-color: #d97a7a; */
+    --dark-text-color: #d97a7a;
 
-    --dark-primary-color: #339af0;
+    /* --dark-primary-color: #339af0;
     --dark-secondary-color: #adb5bd;
     --dark-background-color: #212529;
-    --dark-text-color: #f8f9fa;
+    --dark-text-color: #f8f9fa; */
 }
 
 html{
     font-size: 16px;
     line-height: 1.5;
     color: var(--text-color);
-    cursor: wait;
 }
 
 body {
@@ -108,10 +107,10 @@ body.dark-mode {
     color: var(--dark-text-color);
 }
 
-body.dark-mode section {
+/* body.dark-mode section {
     background-color: var(--dark-secondary-color);
     color: var(--dark-text-color);
-}
+} /* Bohdan: Looks like its not needed if body is changed? Don't see any change. */
 
 body.dark-mode #greeting {
     color: var(--dark-text-color);
@@ -336,9 +335,9 @@ body.dark-mode header {
 }
 
 #darkModeButton:hover {
-    background: linear-gradient(90deg, #007bff 0%, #343a40 100%);
+    background: linear-gradient(90deg, #9bc66e 0%, #343a40 100%);
     transform: scale(1.05);
-    color: #ffd700;
+    color: #9d1111;
 }
 
 .cart-quantity-controls {
