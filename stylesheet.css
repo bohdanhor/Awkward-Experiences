@@ -1,14 +1,14 @@
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --background-color: #f8f9fa;
-    --text-color: #333;
+    --primary-color:  pink;
+    --secondary-color:  #b6a373;
+    --background-color:  #544436;
+    --text-color: #ff0000;
     --alert-text-color: #ff0000;
 /* DARK MODE */
-    --dark-primary-color: pink;
-    --dark-secondary-color: #b6a373;
-    --dark-background-color: #544436;
-    --dark-text-color: #ff0000; 
+    --dark-primary-color: #007bff;
+    --dark-secondary-color: #6c757d;
+    --dark-background-color: #f8f9fa;
+    --dark-text-color: #333; 
 }
 
 .alert, .jokealert {
@@ -151,7 +151,6 @@ body.dark-mode header {
 }
 
 .job-card {
-    background: #fff;
     border: 1px solid #e3e3e3;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
