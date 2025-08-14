@@ -94,6 +94,7 @@ showAlertThreeTimes();
 //data for jobs
 const jobs = [
     {
+        id: 1,
         title: "Church Clown",
         company: "Honk Honk Ltd",
         location: "Manchester Cathedral",
@@ -103,6 +104,7 @@ const jobs = [
         tags: ["Part-time", "Entry Level", "Fun"]
     },
     {
+        id: 2,
         title: "Middle Management",
         company: "You don’t care",
         location: "Greater Manchester",
@@ -112,6 +114,7 @@ const jobs = [
         tags: ["Full-time", "Office", "Management"]
     },
     {
+        id: 3,
         title: "Nova Representative",
         company: "Nova Skincare",
         location: "Greater Manchester",
@@ -121,6 +124,7 @@ const jobs = [
         tags: ["Full-time", "Sales", "Driving Licence"]
     },
     {
+        id: 4,
         title: "Cat Sitter",
         company: "Purrfect Home",
         location: "Greater Manchester",
@@ -130,6 +134,7 @@ const jobs = [
         tags: ["Part-time", "Pets", "Driving Licence"]
     },
     {
+        id: 5,
         title: "Dog Walker",
         company: "Waggie Walkies",
         location: "Greater Manchester",
@@ -140,13 +145,22 @@ const jobs = [
     }
 ];
 
-function renderJobs(jobs) {
-    if ($('#jobs-list').length) {
-    $('#jobs-list').empty();
-    jobs.forEach(function(job, idx) {
-        const tagsHtml = job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('');
-        const jobHtml = `
-            <div class="job-card">
+function groupCartItems(cart) {
+    const grouped = {};
+    cart.forEach(job => {
+        if (grouped[job.id]) {
+            grouped[job.id].quantity += 1;
+        } else {
+            grouped[job.id] = { ...job, quantity: 1 };
+        }
+    });
+    return Object.values(grouped);
+}
+
+function jobCardHtml(job, showApply = false, jobIdx = null, showQuantity = false) {
+    const tagsHtml = job.tags ? job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('') : '';
+    return `
+        <div class="job-card" data-id="${job.id}">
             <h3 class="job-title">${job.title}</h3>
             <div class="job-company">${job.company}</div>
             <div class="job-location">${job.location}</div>
@@ -154,23 +168,87 @@ function renderJobs(jobs) {
             <p class="job-desc">${job.desc}</p>
             <div class="job-ideal">Ideal Candidate: ${job.ideal}</div>
             <div class="job-tags">${tagsHtml}</div>
-            <button class="apply-btn" data-job="${idx}">Apply</button>
-            </div>
-        `;
-        $('#jobs-list').append(jobHtml);
+            ${showApply ? `<button class="apply-btn" data-job="${jobIdx}">Apply</button>` : ''}
+            ${showQuantity ? `
+                <div class="cart-quantity-controls">
+                    <button class="quantity-btn minus-btn" data-id="${job.id}">-</button>
+                    <span class="cart-quantity">Quantity: ${job.quantity}</span>
+                    <button class="quantity-btn plus-btn" data-id="${job.id}">+</button>
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+function renderJobs(jobs) {
+    if ($('#jobs-list').length) {
+        $('#jobs-list').empty();
+        jobs.forEach(function(job, idx) {
+            $('#jobs-list').append(jobCardHtml(job, true, idx));
         });
 
         // Apply button handler
-        $('.apply-btn').on('click', function() {
-        const jobIdx = $(this).data('job');
-        alert(`You applied for: ${jobs[jobIdx].title}`);
+        $('.apply-btn').off('click').on('click', function() {
+            const jobIdx = $(this).data('job');
+            addToCart(jobs[jobIdx]);
         });
     }
 }
-// Existing job rendering logic...
-if ($('#jobs-list')) {
-    renderJobs(jobs);
+
+function renderCart(cart) {
+    if ($('#jobs-cart').length) {
+        $('#jobs-cart').empty();
+        const groupedJobs = groupCartItems(cart);
+        if (groupedJobs.length === 0) {
+            $('#jobs-cart').append('<p>Your cart is empty.</p>');
+        } else {
+            groupedJobs.forEach(function(job) {
+                $('#jobs-cart').append(jobCardHtml(job, false, null, true));
+            });
+
+            // Quantity button handlers
+            $('.plus-btn').off('click').on('click', function() {
+                const id = Number($(this).data('id'));
+                const job = jobs.find(j => j.id === id);
+                cart.push(job);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart(cart);
+                updateCartCount();
+            });
+
+            $('.minus-btn').off('click').on('click', function() {
+                const id = Number($(this).data('id'));
+                const idx = cart.findIndex(j => j.id === id);
+                if (idx !== -1) {
+                    cart.splice(idx, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart(cart);
+                    updateCartCount();
+                }
+            });
+        }
+    }
 }
+
+// --- Cart logic ---
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+function addToCart(job) {
+    cart.push(job);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+function updateCartCount() {
+    const count = cart.length;
+    $('#cart-count').text(`Cart(${count})`);
+}
+updateCartCount();
+
+// Render jobs or cart depending on page
+$(document).ready(function() {
+    renderJobs(jobs);
+    renderCart(cart);
+    updateCartCount();
+});
 
 $('#fontRange').on('input', function() {
     // Range: 1-100, map to 12px - 32px
