@@ -4,7 +4,7 @@ document.addEventListener('click', function(e) {
     clickCount++;
 
     if (clickCount % 5 === 0) {                                                     
-        let sound = new Audio("media/jixaw-metal-pipe-falling-sound.mp3");
+        let sound = new Audio("media/windows-error-sound-effect-35894.mp3");
         sound.play().catch(err => console.error("Audio play error:", err));
     }
 }, true); // "true" captures before other listeners
